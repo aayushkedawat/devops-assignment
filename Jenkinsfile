@@ -22,9 +22,6 @@ pipeline {
         }
 
         stage('Deploy to Staging') {
-            when {
-                branch 'develop'
-            }
             steps {
                 echo "Deploying to STAGING"
                 sh './deploy.sh staging'
@@ -32,9 +29,6 @@ pipeline {
         }
 
         stage('Deploy to Production') {
-            when {
-                branch 'main'
-            }
             steps {
                 input "Approve to deploy to production?"
                 echo "Deploying to PRODUCTION"
